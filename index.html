@@ -4,7 +4,9 @@ Hello World
     document.addEventListener('DOMContentLoaded', function () {
         if (document.cookie) {
             console.log(document.cookie, 'cookie')
-            // jwt = parseJwt(document.cookie)
+            const credential = getCookieValue("credential")
+            const jwt = parseJwt(credential)
+            console.log(jwt)
         }
 
         google.accounts.id.initialize({
@@ -29,7 +31,15 @@ Hello World
 
         return JSON.parse(jsonPayload);
     }
+
+    function getCookieValue(name) {
+            const regex = new RegExp(`(^| )${name}=([^;]+)`)
+            const match = document.cookie.match(regex)
+            if (match) {
+                return match[2]
+            }
+        }
 </script>
 <div id="signInDiv"></div>
 <input type="password" name="password" required />
-test bro 3
+test bro 4
