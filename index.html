@@ -1,17 +1,16 @@
 Hello World
-<script src="https://accounts.google.com/gsi/client&callback=setupGoogle" async></script>
+<script src="https://accounts.google.com/gsi/client"></script>
 <script>
-    function handleCallbackResponse(response) {
-        console.log(response)
-    }
-
-    function setupGoogle() {
+    document.addEventListener('DOMContentLoaded', function () {
         console.log(google)
         google.accounts.id.initialize({
             client_id: "341223469941-4rev37tac1pktlkff6f8jdscgo7jh8p6.apps.googleusercontent.com",
             callback: handleCallbackResponse
         })
         google.accounts.id.renderButton(document.getElementById("signInDiv"), { theme: "outline", size: "large" })
+    })
+    function handleCallbackResponse(response) {
+        console.log(response)
     }
 </script>
 <div id="signInDiv"></div>
