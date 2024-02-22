@@ -4,8 +4,7 @@ Hello World
     document.addEventListener('DOMContentLoaded', function () {
         if (document.cookie) {
             console.log(document.cookie, 'cookie')
-            jwt = parseJwt(document.cookie)
-            console.log(jwt, 'jwt decoded')
+            // jwt = parseJwt(document.cookie)
         }
 
         google.accounts.id.initialize({
@@ -33,4 +32,4 @@ Hello World
 </script>
 <div id="signInDiv"></div>
 <input type="password" name="password" required />
-test bro 2
+test bro 3
