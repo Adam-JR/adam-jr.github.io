@@ -1,13 +1,14 @@
 Hello World
-<script src="https://apis.google.com/js/platform.js" async defer>
-    function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script>
+    function handleCallbackResponse(response) {
+        console.log(response)
     }
+    google.accounts.id.initialize({
+        client_id: "341223469941-4rev37tac1pktlkff6f8jdscgo7jh8p6.apps.googleusercontent.com",
+        callback: handleCallbackResponse
+    })
+    google.accounts.id.renderButton(document.getElementById("signInDiv"), {theme: "outline", size: "large"})
 </script>
-<meta name="google-signin-client_id" content="341223469941-4rev37tac1pktlkff6f8jdscgo7jh8p6.apps.googleusercontent.com">
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<div id="signInDiv"></div>
 <input type="password" name="password" required />
