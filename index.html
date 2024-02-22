@@ -17,7 +17,7 @@ Hello World
     })
 
     function handleCallbackResponse(response) {
-        document.cookie = response.credential
+        document.cookie = `credential=${response.credential}`
         document.getElementById("signInDiv").remove()
     }
 
