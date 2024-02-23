@@ -1,7 +1,23 @@
 Hello World
 <script src="https://accounts.google.com/gsi/client"></script>
 <script>
+    function postAmount(type) {
+        const amount = document.querySelector("input").value
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'x-api-key': '0M1ezEvOtz3TbatBA2QY6a5SFXgMWOQb9WsLDVux' },
+            body: JSON.stringify({ amount, type: type })
+        };
+        fetch('https://jp58o1y3qe.execute-api.us-east-2.amazonaws.com/coriander/tx', requestOptions)
+            .then(response => response.json())
+            .then(data => console.log(data));
+    }
+</script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector("button#groceries").addEventListener("click", () => postAmount("groceries"))
+        document.querySelector("button#other").addEventListener("click", () => postAmount("other"))
+
         if (document.cookie) {
             console.log(document.cookie, 'cookie')
             const credential = getCookieValue("credential")
@@ -33,13 +49,14 @@ Hello World
     }
 
     function getCookieValue(name) {
-            const regex = new RegExp(`(^| )${name}=([^;]+)`)
-            const match = document.cookie.match(regex)
-            if (match) {
-                return match[2]
-            }
+        const regex = new RegExp(`(^| )${name}=([^;]+)`)
+        const match = document.cookie.match(regex)
+        if (match) {
+            return match[2]
         }
+    }
 </script>
 <div id="signInDiv"></div>
-<input type="password" name="password" required />
-test bro 4
+<input id="amount" type="numeric" />
+<button id="groceries">Groceries</button>
+<button id="other">Other</button>
