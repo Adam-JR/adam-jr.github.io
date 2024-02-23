@@ -30,7 +30,7 @@ Hello World
             callback: handleCallbackResponse
         })
 
-        google.accounts.id.renderButton(document.getElementById("signInDiv"), { theme: "outline", size: "large" })
+        // google.accounts.id.renderButton(document.getElementById("signInDiv"), { theme: "outline", size: "large" })
     })
 
     function handleCallbackResponse(response) {
@@ -56,7 +56,6 @@ Hello World
         }
     }
 </script>
-<div id="signInDiv"></div>
 <input id="amount" type="numeric" />
 <button id="groceries">Groceries</button>
 <button id="other">Other</button>
