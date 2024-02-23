@@ -13,8 +13,11 @@
         fetch('https://jp58o1y3qe.execute-api.us-east-2.amazonaws.com/coriander/tx', requestOptions)
             .then(response => response.json())
             .then(data => {
+                const body = JSON.parse(data.body)
                 document.getElementById("groceries").disabled = false;
                 document.getElementById("other").disabled = false;
+                document.getElementById("left-today").innerText = `Left today: $${Number(body.dailyLeft/100).toFixed(2)}`
+                document.getElementById("left-this-week").innerText = `Left this week: $${Number(body.weeklyLeft / 100).toFixed(2) }`
             });
     }
 </script>
@@ -67,5 +70,7 @@
         <input id="amount" type="number" style="width: 20rem; height: 8rem; padding: 2rem; font-size: 3rem; border-radius: 4px;" />
         <button id="groceries" style="width: 20rem; height: 8rem; font-size: 3rem; border-radius: 10px;">Groceries</button>
         <button id="other" style="width: 20rem; height: 8rem; font-size: 3rem; border-radius: 10px">Other</button>
+        <div id="left-today">Left today: </div>
+        <div id="left-this-week">Left this week: </div>
     </div>
 </section>
