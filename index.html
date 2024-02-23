@@ -5,7 +5,7 @@ Hello World
         const amount = document.querySelector("input").value
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'x-api-key': '0M1ezEvOtz3TbatBA2QY6a5SFXgMWOQb9WsLDVux' },
+            headers: { 'Content-Type': 'application/json', 'x-api-key': '0M1ezEvOtz3TbatBA2QY6a5SFXgMWOQb9WsLDVux', 'Access-Control-Allow-Origin': 'https://adam-jr.github.io/' },
             body: JSON.stringify({ amount, type: type })
         };
         fetch('https://jp58o1y3qe.execute-api.us-east-2.amazonaws.com/coriander/tx', requestOptions)
