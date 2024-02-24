@@ -16,8 +16,8 @@
                 const body = JSON.parse(data.body)
                 document.getElementById("groceries").disabled = false;
                 document.getElementById("other").disabled = false;
-                document.getElementById("left-today").innerText = `Left today: $${Number(body.dailyLeft/100).toFixed(2)}`
-                document.getElementById("left-this-week").innerText = `Left this week: $${Number(body.weeklyLeft / 100).toFixed(2) }`
+                document.getElementById("left-today").innerText = `Left today: $${body.dailyLeft}`
+                document.getElementById("left-this-week").innerText = `Left this week: $${body.weeklyLeft}`
             });
     }
 </script>
